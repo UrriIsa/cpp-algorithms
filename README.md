@@ -1,6 +1,6 @@
 # README
 
-This repository contains the exercises that I have done in C and C++ language, the completion of these begins in the first year of my Specialized Technical Study in Computing (ETEC) within the 2022-2023 school year. However, in each folder there will be more information about each project.
+This repository contains the exercises that I have done in C and C++ language, the completion of these begins in the first year of my Specialized Technical Study in Computing (ETEC) within the 2022-2023 school year. However, in each folder there will be more information about each project. .
 
 ---
 
