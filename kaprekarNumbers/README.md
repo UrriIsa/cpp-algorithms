@@ -19,7 +19,7 @@ The program allows the user to enter a range of numbers and checks each number i
 ## Caracteristicas / Features
 
 - Permite encontrar números de Kaprekar dentro de un rango definido por el usuario.
-- Valida que los números de entrada sean correctos antes de proceder con la verificación.
+- Valida que los números de entrada sean correctos antes de proceder a verificar.
 - Evita verificar múltiplos de 10, ya que no son considerados números de Kaprekar.
 - Presenta los números de Kaprekar encontrados en el rango o notifica si no se encuentran.
 - Ofrece la opción de repetir la búsqueda con diferentes rangos.
