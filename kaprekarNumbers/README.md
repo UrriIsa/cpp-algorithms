@@ -2,6 +2,8 @@
 
 El programa permite al usuario ingresar un rango de números y verifica cada número en el rango para determinar si es un número de Kaprekar. Si encuentra alguno, lo imprime; de lo contrario, notifica que no se encontraron números de Kaprekar en el rango.
 
+***Traduction :***
+
 The program allows the user to enter a range of numbers and checks each number in the range to determine if it is a Kaprekar number. If it finds one, it prints it; otherwise, it reports that no Kaprekar numbers were found in the range.
 
 ---
