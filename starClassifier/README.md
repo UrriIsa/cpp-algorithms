@@ -5,7 +5,8 @@ Nota : todos los valores de las estrellas que están contenidos en el documento 
 
 ***Traduction :***
 
-//-
+The program allows the user to classify stars by their temperature values. This is accomplished by reading the data from a .csv file. It prints the name, its classification (defined by a letter), density and the numerical value of its temperature. 
+Note : all star values contained in the .csv document are printed with colors, it may not work for all operating systems.
 
 
 ---
@@ -30,7 +31,11 @@ Nota : todos los valores de las estrellas que están contenidos en el documento 
 
 ***Traduction :***
 
-//-
+- Allows to classify stars based on their temperature.
+- Validates that the .csv file can be read, in case of not being able to it will be warned from the beginning.
+- Avoids errors at the moment of reading each one of the data, in case of not being able it prints that there was an error.
+- It presents each and every one of the data in terminal.
+- It uses an efficient approach to create structures for each star and its characteristics.
 
 ---
 
@@ -55,7 +60,7 @@ Nota : todos los valores de las estrellas que están contenidos en el documento 
 ***Traduction :***
 1. Clone this repository.
 2. Make sure you have a C compiler on your system.
-//
+3. Make sure you have a .csv file reader.
 
 ---
 
@@ -82,8 +87,8 @@ Nota : todos los valores de las estrellas que están contenidos en el documento 
 
 ***Traduction :***
 1. Open your terminal.
-2. //
-3. Compile your program :
+2. Move into the scr folder.
+3. Compile your program, with GCC is :
    ```bash
     gcc -o main  main.c functions.c functions.h 
     ```
@@ -91,13 +96,17 @@ Nota : todos los valores de las estrellas que están contenidos en el documento 
    ```bash
     ./main
     ```
-5. If everything worked correctly you should exit :
-   ```bash
-   Dame el número de inicio:
-   ```
-  Which means "Give me the start number:"
-5. Interact by typing the number ranges you want to consider.
-6. When you want to stop the program, just type a character other than 'S' to exit.
+5. If everything worked correctly it should output the rating and characteristics of all the stars in the .csv file.
+6. If something went wrong with the .csv file it will print :
+     ````bash
+     Error al arbir archivo 
+     No se pudieron leer las estrellas.
+     ````
+    That means :  Error while loading file. Could not read stars.
+7. If something went wrong with the reading of the data it will print what went wrong.
+8. You can interact by adding or deleting records within the .csv file.
+9. If a change is made within the .csv file, to see if there were no errors compile and run it again.
+
 
 
 ---
