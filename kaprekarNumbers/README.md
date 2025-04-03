@@ -91,7 +91,7 @@ The program allows the user to enter a range of numbers and checks each number i
    ```bash
    ./Kaprekar
    ```
-4. If everything worked correctly you should exit (Which means : Give me the start number) :
+4. If everything worked correctly you should exit (which means : Give me the start number) :
    ```bash
    Dame el número de inicio:
    ```
