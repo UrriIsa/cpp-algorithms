@@ -41,10 +41,27 @@ This repository contains the exercises that I have done in C, C++ and C# languag
 
 ## Proyectos / Projects
 
-- [Números de kaprekar / kaprekarNumbers](#números-de-kaprekar--números-de-kaprekar)
+- [Números de kaprekar / kaprekarNumbers](#números-de-kaprekar)
+- [Clasificador de Estrellas / starClassifier](#clasificador-de-estrellas)
 
 ### Números de kaprekar
-hola  
+hola  oejde
+dede
+dede
+ded
+ed
+ed
+e
+
+d
+ed
+e
+de
+
+### Clasificador de Estrellas
+
+
+texto
 
 
 ---
