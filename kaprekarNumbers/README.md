@@ -78,6 +78,7 @@ The program allows the user to enter a range of numbers and checks each number i
    ```bash
     Dame el número de inicio:
     ```
+    That means : Give me the starting numbe:
 5. Interactue escribiendo los rangos de números que quiere considerar.
 6. Al momento de querer detener el programa solo vasta dar un caracter diferente a 'S' para salir.
 
