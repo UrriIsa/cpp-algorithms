@@ -45,23 +45,12 @@ This repository contains the exercises that I have done in C, C++ and C# languag
 - [Clasificador de Estrellas / starClassifier](#clasificador-de-estrellas)
 
 ### Números de kaprekar
-hola  oejde
-dede
-dede
-ded
-ed
-ed
-e
 
-d
-ed
-e
-de
+El programa permite al usuario ingresar un rango de números y verifica cada número en el rango para determinar si es un número de Kaprekar. Si encuentra alguno, lo imprime; de lo contrario, notifica que no se encontraron números de Kaprekar en el rango.
 
 ### Clasificador de Estrellas
 
-
-texto
+El programa permite al usuario clasificar estrellas mediante los valores de sus temperaturas. Esto se logra leyendo los datos desde un archivo con terminación .csv. Imprime el nombre, su clasificación (definida por una letra), densidad y el valor numérico de su temperatura. 
 
 
 ---
