@@ -45,6 +45,7 @@ The program allows the user to enter a range of numbers and checks each number i
 - Editor de texto o IDE: Un editor de texto (como Visual Studio Code, Sublime Text, Atom) o un entorno de desarrollo integrado (IDE) como Code::Blocks o Dev-C++.
 
 ***Traduction :***
+
 - Operating system: Any operating system with support for C program compilation, such as Linux, Windows (with MinGW or Cygwin), macOS, etc.
 - C compiler: A C compiler such as GCC (GNU Compiler Collection) or any other compatible compiler, such as Clang (on macOS) or MinGW on Windows.
 - Text editor or IDE: A text editor (such as Visual Studio Code, Sublime Text, Atom) or an integrated development environment (IDE) such as Code::Blocks or Dev-C++.
@@ -57,6 +58,7 @@ The program allows the user to enter a range of numbers and checks each number i
 3. Guarda el archivo en el directorio de tu proyecto.
 
 ***Traduction :***
+
 1. Clone this repository or download the `kaprekar.c` file.
 2. Make sure you have a C compiler on your system.
 3. Save the file in your project directory.
@@ -82,6 +84,7 @@ The program allows the user to enter a range of numbers and checks each number i
 6. Al momento de querer detener el programa solo vasta dar un caracter diferente a 'S' para salir.
 
 ***Traduction :***
+
 1. Open your terminal.
 2. Compile your program :
    ```bash
