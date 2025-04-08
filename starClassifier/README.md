@@ -46,6 +46,7 @@ Note : all star values contained in the .csv document are printed with colors, i
 - Editor de texto o IDE: Un editor de texto (como Visual Studio Code, Sublime Text, Atom) o un entorno de desarrollo integrado (IDE) como Code::Blocks o Dev-C++.
 
 ***Traduction :***
+
 - Operating system: Any operating system with support for C program compilation, such as Linux, Windows (with MinGW or Cygwin), macOS, etc.
 - C compiler: A C compiler such as GCC (GNU Compiler Collection) or any other compatible compiler, such as Clang (on macOS) or MinGW on Windows.
 - Text editor or IDE: A text editor (such as Visual Studio Code, Sublime Text, Atom) or an integrated development environment (IDE) such as Code::Blocks or Dev-C++.
@@ -58,6 +59,7 @@ Note : all star values contained in the .csv document are printed with colors, i
 3. Asegúrate de tener un lector de archivos .csv.
 
 ***Traduction :***
+
 1. Clone this repository.
 2. Make sure you have a C compiler on your system.
 3. Make sure you have a .csv file reader.
@@ -86,6 +88,7 @@ Note : all star values contained in the .csv document are printed with colors, i
 9. Si se realiza un cambio dentro del archivo .csv, para ver si no hubo errores compile y ejecute nuevamente.
 
 ***Traduction :***
+
 1. Open your terminal.
 2. Move into the scr folder.
 3. Compile your program, with GCC is :
