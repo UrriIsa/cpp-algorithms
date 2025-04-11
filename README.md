@@ -11,8 +11,6 @@ This repository contains the exercises that I have done in C, C++ and C# languag
 ## Table of Contents
 
 - [Requisitos / Requirements](#requisitos--requirements)
-- [Uso / Usage](#uso--usage)
-- [Proyectos / Projects](#proyectos--projects)
 - [Licencia / License](#licencia--license)
 
 
@@ -29,36 +27,6 @@ This repository contains the exercises that I have done in C, C++ and C# languag
 - Operating system: Any operating system with support for C program compilation, such as Linux, Windows (with MinGW or Cygwin), macOS, etc.
 - C compiler: A C compiler such as GCC (GNU Compiler Collection) or any other compatible compiler, such as Clang (on macOS) or MinGW on Windows.
 - Text editor or IDE: A text editor (such as Visual Studio Code, Sublime Text, Atom) or an integrated development environment (IDE) such as Code::Blocks or Dev-C++.
-
----
-
-## Uso / Usage
-
-1. Clona este repositorio (o sólo manten los archivos de las carpetas deseadas).
-2. Navega al folder deseado.
-3. Compila y corre los archivos. En cada una de las carpeta se indica de manera más específica.
-
----
-
-## Proyectos / Projects
-
-- [Números de kaprekar / kaprekarNumbers](#números-de-kaprekar)
-- [Clasificador de Estrellas / starClassifier](#clasificador-de-estrellas)
-
-### Números de kaprekar
-
-El programa permite al usuario ingresar un rango de números y verifica cada número en el rango para determinar si es un número de Kaprekar. Si encuentra alguno, lo imprime; de lo contrario, notifica que no se encontraron números de Kaprekar en el rango.
-
-***Traduction :***
-The program allows the user to enter a range of numbers and checks each number in the range to determine if it is a Kaprekar number. If it finds one, it prints it; otherwise, it reports that no Kaprekar numbers were found in the range.
-
-### Clasificador de Estrellas
-
-El programa permite al usuario clasificar estrellas mediante los valores de sus temperaturas. Esto se logra leyendo los datos desde un archivo con terminación .csv. Imprime el nombre, su clasificación (definida por una letra), densidad y el valor numérico de su temperatura. 
-
-***Traduction :***
-The program allows the user to classify stars by their temperature values. This is accomplished by reading the data from a .csv file. It prints the name, its classification (defined by a letter), density and the numerical value of its temperature.
-
 
 ---
 
