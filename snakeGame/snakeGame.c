@@ -16,11 +16,13 @@ int velocidad = 150, score = 0, fin = 0;
 
 // Inicializar ncurses
 void IniciarPantalla() {
-    initscr();
-    noecho();
-    curs_set(FALSE);
-    keypad(stdscr, TRUE);
-    start_color();
+    initscr(); // Inicializa la pantalla para usar ncurses.
+    noecho(); // Evita que las teclas presionadas se muestren en la terminal.
+    curs_set(FALSE); // Oculta el cursor.
+    keypad(stdscr, TRUE); // Permite el uso de teclas especiales como flechas.
+    start_color(); // Activa colores en la terminal.
+    
+    //Define combinaciones de colores (texto y fondo).
     init_pair(1, COLOR_GREEN, COLOR_BLACK);
     init_pair(2, COLOR_RED, COLOR_BLACK);
     init_pair(3, COLOR_YELLOW, COLOR_BLACK);
@@ -30,7 +32,7 @@ void IniciarPantalla() {
     init_pair(7, COLOR_WHITE, COLOR_BLACK);
 }
 
-void gotoxy(int x, int y) {
+void gotoxy(int x, int y) { //implementación de gotoxy() ; para este juego
     move(y, x);
     refresh();
 }
@@ -39,18 +41,18 @@ void textcolor(int color) {
     attron(COLOR_PAIR(color));
 }
 
-void Pintar() {
+void Pintar() { //sirve para imprimir el fondo.
     int i;
-    for (i = 2; i < 78; i++) {
+    for (i = 2; i < 90; i++) {
         gotoxy(i, 3);
         printw("-");
         gotoxy(i, 23);
         printw("-");
     }
-    for (i = 4; i < 23; i++) {
+    for (i = 4; i < 25; i++) {
         gotoxy(2, i);
         printw("|");
-        gotoxy(77, i);
+        gotoxy(90, i);
         printw("|");
     }
     gotoxy(2, 3); printw("+");
@@ -91,7 +93,7 @@ void Comida() {
 
         if (score % 50 == 0) {
             color = (color % 7) + 1;
-            if (velocidad > 50) velocidad -= 10;
+            if (velocidad > 50) velocidad -= 20;
         }
     }
 }
@@ -146,13 +148,13 @@ int main() {
         printw(" ");
 
         // Verificar colisiones
-        if (x == 2 || x == 77 || y == 3 || y == 23 || ColisionCuerpo()) fin = 1;
+        if (x == 2 || x == 90 || y == 3 || y == 23 || ColisionCuerpo()) fin = 1;
 
         Comida();
         Puntaje();
         Move();
 
-        usleep(100000);
+        usleep(1000);
     }
 
     clear();
@@ -168,4 +170,13 @@ int main() {
 }
 
 
+/*
+    Revisión [13-04-25]
+    Falta el menú del juego, o en dado caso añadir las instrucciónes abajo de la ventana.
+    Al final despúes imprimir de manera correcta la puntuación.
+    La opción de salir también falta, así como la del ESC para parar el juego.
+    ventana de cargando.   
+    Quizas ver unos mejores caracteres.
+}
 
+*/
