@@ -61,7 +61,119 @@ void Pintar() { //sirve para imprimir el fondo.
     gotoxy(77, 23); printw("+");
 }
 
-void Move() {
+void Instrucciones (){
+    while(true){
+        char opcion ;
+        clear() ;
+
+        mvprintw(10, 41, "%s", "Instrucciones de Prueba") ;
+
+        
+        attron(A_REVERSE);  
+        mvprintw(15, 47, "%s", "EXIT");
+        attroff(A_REVERSE); 
+    
+        opcion = getch(); 
+
+        if(opcion == 10){
+            return ;
+        }
+    }   
+}
+
+void creditos (){
+    while (true) {
+        clear();
+        int ch ;
+
+        // Mostrar texto
+        mvprintw(10, 10, "Texto parpadeante");
+        refresh();
+        napms(200);  // Espera 200 ms
+    
+        // Borrar texto
+        mvprintw(10, 10, "                   ");  // Borrar texto con espacios
+        refresh();
+        napms(200);  // Espera 200 ms
+
+        mvprintw(10, 10, "Texto parpadeante");
+        refresh();
+        napms(200); 
+        if (ch != ERR) ch = getch();  // Salir si el usuario presiona Enter
+        if (ch == 10) break;
+    }
+}
+
+
+void Menu() {
+    char opcion  ;
+    int seleccion = 0 ;
+    char *opciones[] = { "Play", "Instructions", "Credits", "Exit" } ;
+    int numOpciones = 4 ;
+
+    while(true){
+        clear() ;
+
+        textcolor(1);
+        attron(A_BOLD) ;
+        mvprintw(4, 14, "%s", "    _____  _   __ ___     __ __  ______   ______ ___     __  ___ ______") ;
+        mvprintw(5, 14, "%s", "   / ___/ / | / //   |   / //_/ / ____/  / ____//   |   /  |/  // ____/") ;
+        mvprintw(6, 14, "%s", "   \\__ \\ /  |/ // /| |  / ,<   / __/    / / __ / /| |  / /|_/ // __/   ") ;
+        mvprintw(7, 14, "%s", "  ___/ // /|  // ___ | / /| | / /___   / /_/ // ___ | / /  / // /___   ") ;
+        mvprintw(8, 14, "%s", " /____//_/ |_//_/  |_|/_/ |_|/_____/   \\____//_/  |_|/_/  /_//_____/   ") ;
+        attroff(COLOR_PAIR(1));                                                        
+
+        mvprintw(25, 43, "%s", "(use W or S)") ;
+
+        for(int i = 0 ; i < numOpciones ; i++ ){
+            textcolor(4);
+            if(i == seleccion){
+
+                attron(A_REVERSE) ; // Resalta la opción seleccionada, no cierro mi A_BOLD para que al presionar teclas el titulo cambie
+            }
+            if(i == 0 || i == 3){
+                //y, x
+                mvprintw(12 + (i*2), 47, "%s", opciones[i]);
+            
+            }else if(i == 2){
+                mvprintw(12 + (i*2), 45, "%s", opciones[i]);
+            }
+            else{
+                mvprintw(12 + (i*2), 43, "%s", opciones[i]);
+            }
+            attroff(A_REVERSE | COLOR_PAIR(4));
+        }
+
+        opcion = getch();
+
+        switch (opcion){
+            case 'w' :
+                seleccion = ((seleccion - 1) + numOpciones) % numOpciones;
+                break;
+            case 's' :
+                seleccion = (seleccion + 1) % numOpciones;
+                break ;
+            case 10: // Enter para seleccionar
+                if (seleccion == 0) {
+                    return; // Iniciar el juego
+                } else if(seleccion == 1){
+                    Instrucciones();
+                }else if(seleccion == 2){
+                    creditos() ;
+                }else if (seleccion == 3) {
+                    endwin();
+                    exit(0); // Salir del programa
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+}
+
+
+void moverse() {
     timeout(velocidad);
     int ch = getch();
     if (ch != ERR) {
@@ -120,6 +232,11 @@ int ColisionCuerpo() {
 
 int main() {
     IniciarPantalla();
+
+    Menu() ;
+    clear() ;
+
+
     Pintar();
     gotoxy(xc, yc);
     textcolor(2);
@@ -152,15 +269,20 @@ int main() {
 
         Comida();
         Puntaje();
-        Move();
+        moverse();
 
         usleep(1000);
     }
 
     clear();
-    gotoxy(30, 10);
     textcolor(2);
-    printw("GAME OVER! SCORE: %d", score);
+    mvprintw(10, 33, "%s", "     ______   _   __   ____ ") ;
+    mvprintw(11, 33, "%s", "    / ____/  / | / /  / __ \\") ;
+    mvprintw(12, 33, "%s", "   / __/    /  |/ /  / / / /") ;
+    mvprintw(13, 33, "%s", "  / /___   / /|  /  / /_/ / ") ;
+    mvprintw(14, 33, "%s", " /_____/  /_/ |_/  /_____/  ") ;                 
+    
+    mvprintw(16, 44, "SCORE: %d", score) ;
     attroff(COLOR_PAIR(2));
     refresh();
     sleep(3);
