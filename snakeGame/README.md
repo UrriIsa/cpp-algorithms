@@ -7,7 +7,7 @@ El motivo de tener dos archivos es mostrar dos versiones parecidas pero realizad
 un proyecto de conio que se realizó en mi primer año de Estudio Técnico Especializado en Computación (ETEC), existe una versión mucho más trabajada pero no pude encontrarla. Por otro lado, 
 el llamado 'snakeGame.c' se realizó en mi primer semestre de la licenciatura en Ciencias de la Computación como parte de la práctica extra que me gusta hacer además de mis tareas.
 
-***Traduction***
+***Traduction :***
 
 This program is the snake game that can be found in Google. As you can see there are two files, one called 'Snake.c' and the other 'snakeGame.c', the first one was 
 developed on a Windows device using the conio.h and windows.h libraries; the second one was developed on a Linux device (Fedora) and uses the ncurses.h and unistd.h libraries.
