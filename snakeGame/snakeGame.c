@@ -30,7 +30,7 @@ void IniciarPantalla() {
     init_pair(5, COLOR_MAGENTA, COLOR_BLACK);
     init_pair(6, COLOR_CYAN, COLOR_BLACK);
     init_pair(7, COLOR_WHITE, COLOR_BLACK);
-}
+}   
 
 void gotoxy(int x, int y) { //implementación de gotoxy() ; para este juego
     move(y, x);
@@ -46,7 +46,7 @@ void Pintar() { //sirve para imprimir el fondo.
     for (i = 2; i < 90; i++) {
         gotoxy(i, 3);
         printw("-");
-        gotoxy(i, 23);
+        gotoxy(i, 25);
         printw("-");
     }
     for (i = 4; i < 25; i++) {
@@ -55,23 +55,42 @@ void Pintar() { //sirve para imprimir el fondo.
         gotoxy(90, i);
         printw("|");
     }
+    //Esquinas izquierdas
     gotoxy(2, 3); printw("+");
-    gotoxy(2, 23); printw("+");
-    gotoxy(77, 3); printw("+");
-    gotoxy(77, 23); printw("+");
+    gotoxy(2, 25); printw("+");
+    //Esquinas derechas
+    gotoxy(90, 3); printw("+");
+    gotoxy(90, 25); printw("+");
+
 }
 
-void Instrucciones (){
+void instrucciones (){
     while(true){
         char opcion ;
         clear() ;
-
-        mvprintw(10, 41, "%s", "Instrucciones de Prueba") ;
-
+        textcolor(5);
+        attron(A_BOLD) ;
         
-        attron(A_REVERSE);  
-        mvprintw(15, 47, "%s", "EXIT");
-        attroff(A_REVERSE); 
+        mvprintw(3, 18, "%s", "_  _  _  ____  ___  ____  _  _  ____  ___  _  ____  _  _  ____ ") ;
+        mvprintw(4, 18, "%s", "|  |\\ |  [__    |   |__/  |  |  |      |   |  |  |  |\\ |  [__  ") ;
+        mvprintw(5, 18, "%s", "|  | \\|  ___]   |   |  \\  |__|  |___   |   |  |__|  | \\|  ___] ") ;
+                                                                          
+
+        attroff(COLOR_PAIR(5));
+        
+        textcolor(4);
+        mvprintw(8, 27, "%s","Move the snake so that it eats the most food.") ;
+        mvprintw(10, 23, "%s","You will lose when you hit the wall or your own body.") ;
+        mvprintw(12, 41, "%s","W - Move up") ;
+        mvprintw(14, 41, "%s","S - Move down") ;
+        mvprintw(16, 41, "%s","A - Move left") ;
+        mvprintw(18, 41, "%s","D - Move right") ;
+        mvprintw(20, 36, "%s","ENTER - Select options") ;
+        attroff(COLOR_PAIR(4)) ; 
+
+        attron(A_REVERSE) ;  
+        mvprintw(24, 45, "%s", "EXIT") ;
+        attroff(A_REVERSE | COLOR_PAIR(7)) ; 
     
         opcion = getch(); 
 
@@ -82,26 +101,41 @@ void Instrucciones (){
 }
 
 void creditos (){
-    while (true) {
-        clear();
-        int ch ;
+    while(true){
+        char opcion ;
+        clear() ;
+        textcolor(5);
+        attron(A_BOLD) ;
+        mvprintw(3, 32, "%s", "____  ____  ____  ___   _  ___  ____ ") ;
+        mvprintw(4, 32, "%s", "|     |__/  |___  |  \\  |   |   [__  ") ;
+        mvprintw(5, 32, "%s", "|___  |  \\  |___  |__/  |   |   ___] ") ;
+        attroff(COLOR_PAIR(5));
 
-        // Mostrar texto
-        mvprintw(10, 10, "Texto parpadeante");
-        refresh();
-        napms(200);  // Espera 200 ms
+                                                
+        textcolor(4);
+        mvprintw(8, 36, "%s","This game was developed by :") ;
+        attroff(COLOR_PAIR(4));
+        
+        textcolor(4);
+        attron(A_REVERSE) ; 
+        mvprintw(10, 43, "%s"," Isaac Urrutia ") ;
+        attroff(A_REVERSE | COLOR_PAIR(4)) ;
+
+        textcolor(4);
+        mvprintw(12, 40, "%s","License: MIT License") ;
+        mvprintw(14, 42, "%s","GitHub : UrriIsa") ;
+        attroff(COLOR_PAIR(4)) ; 
+
+        attron(A_REVERSE) ;  
+        mvprintw(23, 47, "%s", "EXIT") ;
+        attroff(A_REVERSE | COLOR_PAIR(4)) ; 
     
-        // Borrar texto
-        mvprintw(10, 10, "                   ");  // Borrar texto con espacios
-        refresh();
-        napms(200);  // Espera 200 ms
+        opcion = getch(); 
 
-        mvprintw(10, 10, "Texto parpadeante");
-        refresh();
-        napms(200); 
-        if (ch != ERR) ch = getch();  // Salir si el usuario presiona Enter
-        if (ch == 10) break;
-    }
+        if(opcion == 10){
+            return ;
+        }
+    }    
 }
 
 
@@ -116,11 +150,11 @@ void Menu() {
 
         textcolor(1);
         attron(A_BOLD) ;
-        mvprintw(4, 14, "%s", "    _____  _   __ ___     __ __  ______   ______ ___     __  ___ ______") ;
-        mvprintw(5, 14, "%s", "   / ___/ / | / //   |   / //_/ / ____/  / ____//   |   /  |/  // ____/") ;
-        mvprintw(6, 14, "%s", "   \\__ \\ /  |/ // /| |  / ,<   / __/    / / __ / /| |  / /|_/ // __/   ") ;
-        mvprintw(7, 14, "%s", "  ___/ // /|  // ___ | / /| | / /___   / /_/ // ___ | / /  / // /___   ") ;
-        mvprintw(8, 14, "%s", " /____//_/ |_//_/  |_|/_/ |_|/_____/   \\____//_/  |_|/_/  /_//_____/   ") ;
+        mvprintw(4, 15, "%s", "    _____  _   __ ___     __ __  ______   ______ ___     __  ___ ______") ;
+        mvprintw(5, 15, "%s", "   / ___/ / | / //   |   / //_/ / ____/  / ____//   |   /  |/  // ____/") ;
+        mvprintw(6, 15, "%s", "   \\__ \\ /  |/ // /| |  / ,<   / __/    / / __ / /| |  / /|_/ // __/   ") ;
+        mvprintw(7, 15, "%s", "  ___/ // /|  // ___ | / /| | / /___   / /_/ // ___ | / /  / // /___   ") ;
+        mvprintw(8, 15, "%s", " /____//_/ |_//_/  |_|/_/ |_|/_____/   \\____//_/  |_|/_/  /_//_____/   ") ;
         attroff(COLOR_PAIR(1));                                                        
 
         mvprintw(25, 43, "%s", "(use W or S)") ;
@@ -157,7 +191,7 @@ void Menu() {
                 if (seleccion == 0) {
                     return; // Iniciar el juego
                 } else if(seleccion == 1){
-                    Instrucciones();
+                    instrucciones();
                 }else if(seleccion == 2){
                     creditos() ;
                 }else if (seleccion == 3) {
@@ -185,10 +219,10 @@ void moverse() {
 }
 
 void Puntaje() {
-    textcolor(7);
+    textcolor(3);
     gotoxy(3, 1);
     printw("SCORE: %d", score);
-    attroff(COLOR_PAIR(7));
+    attroff(COLOR_PAIR(3));
     refresh();
 }
 
@@ -265,7 +299,7 @@ int main() {
         printw(" ");
 
         // Verificar colisiones
-        if (x == 2 || x == 90 || y == 3 || y == 23 || ColisionCuerpo()) fin = 1;
+        if (x == 2 || x == 90 || y == 3 || y == 25 || ColisionCuerpo()) fin = 1;
 
         Comida();
         Puntaje();
@@ -275,14 +309,17 @@ int main() {
     }
 
     clear();
-    textcolor(2);
-    mvprintw(10, 33, "%s", "     ______   _   __   ____ ") ;
-    mvprintw(11, 33, "%s", "    / ____/  / | / /  / __ \\") ;
-    mvprintw(12, 33, "%s", "   / __/    /  |/ /  / / / /") ;
-    mvprintw(13, 33, "%s", "  / /___   / /|  /  / /_/ / ") ;
-    mvprintw(14, 33, "%s", " /_____/  /_/ |_/  /_____/  ") ;                 
-    
-    mvprintw(16, 44, "SCORE: %d", score) ;
+    textcolor(2);  
+    mvprintw(6, 19, "%s", "    ,.   (   .      )       .          .      \"    .      \"") ;
+    mvprintw(7, 19, "%s", "    (\"     )  )'     ,'      )  . (`     '`   )  . (`     '`") ;
+    mvprintw(8, 19, "%s", "  .; )  ' (( (\" )    ;(,    ((  (  ;)  \"  )\"  ((  (  ;)  \" \"") ;
+    mvprintw(9, 19, "%s", "  _\"., ,._'_.,)_(..,( . )__' )_') (. _..( '..  _' )_') (. _..'") ;
+    mvprintw(10, 19, "%s", "    ______ ___     __  ___ ______   ____  _    __ ______ ____ ") ;
+    mvprintw(11, 19, "%s", "   / ____//   |   /  |/  // ____/  / __ \\| |  / // ____// __ \\") ;
+    mvprintw(12, 19, "%s", "  / / __ / /| |  / /|_/ // __/    / / / /| | / // __/  / /_/ /") ;
+    mvprintw(13, 19, "%s", " / /_/ // ___ | / /  / // /___   / /_/ / | |/ // /___ / _, _/ ") ;
+    mvprintw(14, 19, "%s", " \\____//_/  |_|/_/  /_//_____/   \\____/  |___//_____//_/ |_|  ") ;
+    mvprintw(16, 45, "SCORE: %d", score) ;
     attroff(COLOR_PAIR(2));
     refresh();
     sleep(3);
@@ -293,12 +330,10 @@ int main() {
 
 
 /*
-    Revisión [13-04-25]
-    Falta el menú del juego, o en dado caso añadir las instrucciónes abajo de la ventana.
-    Al final despúes imprimir de manera correcta la puntuación.
-    La opción de salir también falta, así como la del ESC para parar el juego.
+    Revisión [16-04-25]
+     del ESC para parar el juego.
     ventana de cargando.   
-    Quizas ver unos mejores caracteres.
+    
 }
 
 */
