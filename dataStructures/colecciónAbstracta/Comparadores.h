@@ -4,6 +4,8 @@
 // Función para comparar enteros
 int intCompare(const void *a, const void *b);
 
+int intCompareRow(const void *a, const void *b);
+
 // Función para comparar dobles
 int doubleCompare(const void *a, const void *b);
 
