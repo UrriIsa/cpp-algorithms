@@ -4,21 +4,34 @@
 
 // Implementación de los métodos comunes:
 
-bool collectionIsEmpty(Collection *self) {
+bool collectionIsEmpty(Colección *self) {
     return self->tam == 0;
 }
 
-size_t collectionSize(Collection *self) {
+size_t collectionSize(Colección *self) {
     return self->tam;
 }
 
-void collectionClear(Collection *self) {
-    // Este método debe ser sobrescrito en las estructuras derivadas.
-    // Por ejemplo, liberando memoria específica.
+void collectionClear(Colección *self) {
+    if (self == NULL) return; // Verifica que la instancia no sea NULL
+
+    // Liberar los elementos del arreglo `data`
+    for (size_t i = 0; i < self->tam; ++i) {
+        free(self->data[i]); // Liberar cada elemento dinámico
+        self->data[i] = NULL; // Prevenir acceso accidental
+    }
+
+    // Liberar el arreglo `data`
+    free(self->data);
+    self->data = NULL; // Prevenir acceso accidental
+
+    // Liberar la estructura principal
+    free(self);
+
     self->tam = 0;
 }
 
-bool collectionContains(Collection *self, int element) {
+bool collectionContains(Colección *self, int element) {
     if (!self || !self->data) {
         return false;
     }

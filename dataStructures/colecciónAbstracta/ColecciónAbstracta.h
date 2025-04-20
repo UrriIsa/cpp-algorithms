@@ -29,9 +29,7 @@ struct Colección {
     ColecciónVTable *vtable ;
     size_t tam ;
     void **data ;                    // Arreglo de punteros a elementos
-    // Función de comparación para determinar igualdad entre elementos.
-    // Por convención, debe devolver 0 si los elementos son iguales.
-    int (*compare)(const void *a, const void *b) ;
+    int (*compare)(const void *a, const void *b) ; // Función de comparación para determinar igualdad entre elementos. Por convención, debe devolver 0 si los elementos son iguales.
 } ;
 
 
