@@ -18,56 +18,64 @@
      0 = vacío, 1 = éxito
 */
 
-#define DCLR_PILA(T, NOMBRE)                                            \
+#define PILA_DCLR(T, NOMBRE)                                            \
                                                                         \
-    typedef struct NOMBRE##Elmt{                                        \
+    typedef struct Elmt##NOMBRE{                                        \
         T dato ;                                                        \
-        struct NOMBRE##Elmt* sig ;                                      \
-    } NOMBRE##Elmt ;                                                    \
+        struct Elmt##NOMBRE* sig ;                                      \
+    } Elmt##NOMBRE ;                                                    \
                                                                         \
     typedef struct{                                                     \
-        NOMBRE##Elmt* tope ;                                            \
-    } NOMBRE##Pila ;                                                    \
+        Elmt##NOMBRE* tope ;                                            \
+        int tam ;                                                       \
+    } Pila##NOMBRE ;                                                    \
                                                                         \
     typedef struct {                                                    \
-        int valido ;                                                    \
+        bool valido ;                                                   \
         T   valor ;                                                     \
-    } NOMBRE##Result ;                                                  \
+    } ResPil##NOMBRE ;                                                  \
                                                                         \
-    static inline void NOMBRE##_agrega(NOMBRE##Pila* p, T valor){       \
-        NOMBRE##Elmt* el = malloc(sizeof(NOMBRE##Elmt)) ;               \
+    static inline void NOMBRE##PAgrega(Pila##NOMBRE* p, T valor){       \
+        Elmt##NOMBRE* el = malloc(sizeof(Elmt##NOMBRE)) ;               \
         el->dato = valor ;                                              \
         el->sig = p->tope ;                                             \
         p->tope = el ;                                                  \
+        p->tam ++ ;                                                     \
     }                                                                   \
                                                                         \
-    static inline NOMBRE##Result NOMBRE##_elimina(NOMBRE##Pila* p){     \
-        NOMBRE##Result res = { .valido = 0 };                           \
+    static inline ResPil##NOMBRE NOMBRE##PExpulsa(Pila##NOMBRE* p){     \
+        ResPil##NOMBRE res = { .valido = false } ;                      \
                                                                         \
         if (p->tope) {                                                  \
-            NOMBRE##Elmt* el = p->tope ;                                \
+            Elmt##NOMBRE* el = p->tope ;                                \
             res.valor = el->dato ;                                      \
-            res.valido = 1 ;                                            \
+            res.valido = true ;                                         \
             p->tope = el->sig ;                                         \
+            p->tam-- ;                                                  \
             free(el) ;                                                  \
         }                                                               \
                                                                         \
         return res ;                                                    \
     }                                                                   \
                                                                         \
-    static inline bool NOMBRE##_esVacio(NOMBRE##Pila* p){               \
+    static inline bool NOMBRE##PEsVacia(Pila##NOMBRE* p){               \
         return p->tope == NULL ;                                        \
     }                                                                   \
                                                                         \
-    static inline NOMBRE##Result NOMBRE##_mira(NOMBRE##Pila* p){        \
-        NOMBRE##Result res = { .valido = 0 } ;                          \
+    static inline ResPil##NOMBRE NOMBRE##PMira(Pila##NOMBRE* p){        \
+        ResPil##NOMBRE res = { .valido = false } ;                      \
                                                                         \
         if(p->tope){                                                    \
             res.valor = p->tope->dato ;                                 \
-            res.valido = 1 ;                                            \
+            res.valido = true ;                                         \
         }                                                               \
                                                                         \
         return res ;                                                    \
+    }                                                                   \
+                                                                        \
+    static inline void NOMBRE##PVacia(Pila##NOMBRE* p){                 \
+        p->tope = NULL ;                                                \
+        p->tam = 0 ;                                                    \
     }                                                                   \
 
 #endif
