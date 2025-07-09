@@ -5,19 +5,40 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-/* 
-  DCLR_PILA(T, NOMBRE):
-    - T: el tipo de elemento (int, float, struct MiTipo, …)
-    - NOMBRE: prefijo para los tipos y funciones (p.ej. “Int” o “Flt”)
-
-
-    pop es elimina
-    peek es mira
-    push es agrega   
-
-     0 = vacío, 1 = éxito
-*/
-
+/**
+ * @brief  Declara los tipos y funciones de una pila para almacenar objetos de tipo T.
+ *
+ * Esta macro genera:
+ *   - ElmtNOMBRE: nodo o elemento interno de la pila.
+ *   - PilaNOMBRE: estructura de la pila (tope y tamaño).
+ *   - ResPilNOMBRE: resultado de operaciones peek/pop con campo @c valido y @c valor.
+ *   - NOMBRE##PAgrega: inserta un nuevo elemento (push).
+ *   - NOMBRE##PExpulsa: extrae y libera el elemento del tope (pop).
+ *   - NOMBRE##PEsVacia: comprueba si la pila está vacía.
+ *   - NOMBRE##PMira: mira el elemento en el tope sin extraerlo (peek).
+ *   - NOMBRE##PVacia: elimina todos los elementos, deja la pila vacía.
+ *
+ * @note La pila debe inicializarse manualmente antes de usar:
+ *       @code{.c}
+ *         PilaNOMBRE pila = { .tope = NULL, .tam = 0 };
+ *       @endcode
+ *
+ * @param T       Tipo de los elementos que guardará la pila (int, float, struct …).
+ * @param NOMBRE  Prefijo para los tipos y funciones (por ejemplo: “Int”, “Flt”, “MiTipo”).
+ *
+ * @example
+ *   // Declara una pila de enteros con sufijo “Int”
+ *   PILA_DCLR(int, Int)
+ *
+ *   int main(void) {
+ *     PilaInt pila = { .tope = NULL, .tam = 0 };
+ *     IntPAgrega(&pila, 42);
+ *     ResPilInt r = IntPMira(&pila);
+ *     if (r.valido) printf("Tope = %d\n", r.valor);
+ *     IntPVacia(&pila);
+ *     return 0;
+ *   }
+ */
 #define PILA_DCLR(T, NOMBRE)                                            \
                                                                         \
     typedef struct Elmt##NOMBRE{                                        \
@@ -73,7 +94,7 @@
         return res ;                                                    \
     }                                                                   \
                                                                         \
-    static inline void NOMBRE##PVacia(Pila##NOMBRE* p){                 \
+    static inline void NOMBRE##PVaciar(Pila##NOMBRE* p){                 \
         p->tope = NULL ;                                                \
         p->tam = 0 ;                                                    \
     }                                                                   \
