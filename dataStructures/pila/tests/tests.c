@@ -1,6 +1,12 @@
 /**
- * @file test_pila.c
- * Pruebas unitarias para la pila genérica definida en pila.h usando MinUnit.
+ * @file tests.c
+ * 
+ * @brief [ES] : Pruebas unitarias para la pila genérica definida en pila.h usando MinUnit.
+ * @brief [EN] : Unit tests for the generic stack defined in stack.h using MinUnit.
+ * 
+ * @author: Isaac Urrutia-Alfaro
+ * License: MIT License
+ * Copyright (c) 2025 Isaac Urrutia-Alfaro
  */
 #include "minunit.h"
 #include "pila.h"
