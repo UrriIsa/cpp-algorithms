@@ -1,3 +1,41 @@
+/**
+ * @file pila.n
+ * 
+ * @brief [ES] : Macro genérica para crear pilas de tipo T.
+ * @brief [EN] : Generic macro to create stacks of type T.
+ * 
+ * @author : Isaac Urrutia-Alfaro
+ * License : MIT License
+ * Copyright (c) 2025 Isaac Urrutia-Alfaro
+ * 
+ * @details [ES]
+ *   Esta macro genera :
+ *     - ElmtNOMBRE : elemento (nodo) interno.
+ *     - PilaNOMBRE : estructura (tope, tamaño).
+ *     - ResPilNOMBRE : tipo de resultado para operaciones de peek y pop.
+ *     - NOMBRE##PAgrega : inserta (push).
+ *     - NOMBRE##PExpulsa : extrae (pop).
+ *     - NOMBRE##PEsVacia : comprueba vacío.
+ *     - NOMBRE##PMira : mira sin extraer.
+ *     - NOMBRE##PVacia : vacía la pila.
+ *
+ * @details [EN]
+ *   This macro generates :
+ *     - ElmtNOMBRE : internal element (node).
+ *     - PilaNOMBRE : stack structure (top, size).
+ *     - ResPilNOMBRE : result of peek/pop.
+ *     - NOMBRE##PAgrega : push.
+ *     - NOMBRE##PExpulsa : pop.
+ *     - NOMBRE##PEsVacia : is_empty.
+ *     - NOMBRE##PMira : peek.
+ *     - NOMBRE##PVacia : clear.
+ *
+ * @param T      [ES] Tipo de los elementos.
+ *               [EN] Type of the elements.
+ * @param NOMBRE [ES] Prefijo para tipos y funciones.
+ *               [EN] Prefix for types and functions.
+ */
+
 #ifndef PILA_H
 #define PILA_H
 
@@ -5,40 +43,6 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-/**
- * @brief  Declara los tipos y funciones de una pila para almacenar objetos de tipo T.
- *
- * Esta macro genera:
- *   - ElmtNOMBRE: nodo o elemento interno de la pila.
- *   - PilaNOMBRE: estructura de la pila (tope y tamaño).
- *   - ResPilNOMBRE: resultado de operaciones peek/pop con campo @c valido y @c valor.
- *   - NOMBRE##PAgrega: inserta un nuevo elemento (push).
- *   - NOMBRE##PExpulsa: extrae y libera el elemento del tope (pop).
- *   - NOMBRE##PEsVacia: comprueba si la pila está vacía.
- *   - NOMBRE##PMira: mira el elemento en el tope sin extraerlo (peek).
- *   - NOMBRE##PVacia: elimina todos los elementos, deja la pila vacía.
- *
- * @note La pila debe inicializarse manualmente antes de usar:
- *       @code{.c}
- *         PilaNOMBRE pila = { .tope = NULL, .tam = 0 };
- *       @endcode
- *
- * @param T       Tipo de los elementos que guardará la pila (int, float, struct …).
- * @param NOMBRE  Prefijo para los tipos y funciones (por ejemplo: “Int”, “Flt”, “MiTipo”).
- *
- * @example
- *   // Declara una pila de enteros con sufijo “Int”
- *   PILA_DCLR(int, Int)
- *
- *   int main(void) {
- *     PilaInt pila = { .tope = NULL, .tam = 0 };
- *     IntPAgrega(&pila, 42);
- *     ResPilInt r = IntPMira(&pila);
- *     if (r.valido) printf("Tope = %d\n", r.valor);
- *     IntPVacia(&pila);
- *     return 0;
- *   }
- */
 #define PILA_DCLR(T, NOMBRE)                                            \
                                                                         \
     typedef struct Elmt##NOMBRE{                                        \
@@ -99,4 +103,4 @@
         p->tam = 0 ;                                                    \
     }                                                                   \
 
-#endif
+#endif // PILA_H
