@@ -14,8 +14,6 @@ $(TARGET): $(SRC)
 	@echo "Compilando archivo de test: $(SRC)"
 	@$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
 
-#Ejecuta el ejemplo
-
 # Ejecuta los tests después de compilar
 test: $(TARGET)
 	@echo "Ejecutando pruebas..."
