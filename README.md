@@ -4,7 +4,7 @@ Este repositorio contiene los ejercicios que he realizado en lenguaje C, C++ y C
 
 ***Traduction :***
 
-This repository contains the exercises that I have done in C, C++ and C# language, the completion of these begins in the first year of my Specialized Technical Study in Computing (ETEC) within the 2022-2023 school year. However, in each folder there will be more information about each project.
+**[EN]** : This repository contains the exercises that I have done in C, C++ and C# language, the completion of these begins in the first year of my Specialized Technical Study in Computing (ETEC) within the 2022-2023 school year. However, in each folder there will be more information about each project.
 
 ---
 
