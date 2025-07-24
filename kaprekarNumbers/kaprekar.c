@@ -1,14 +1,25 @@
-/*
- * Description: This program finds Kaprekar numbers in a given range.
- * Author: Urrutia Alfaro Isaac Arturo
+/**
+ * @file kaprekar.c
+ * 
+ * @brief [ES] : Este programa encuentra números de Kaprekar en un rango dado.
+ * @brief [EN] : This program finds Kaprekar numbers in a given range.
+ * 
+ * @author: Isaac Urrutia-Alfaro
  * License: MIT License
- * Copyright (c) 2024-2025 Urrutia Alfaro Isaac Arturo
+ * Copyright (c) 2024-2025 Isaac Urrutia-Alfaro
  */
 
 #include<stdio.h>
 #include <ctype.h>
 
-// Function to convert a float number to an integer
+/**
+ * @brief [ES] : Función para convertir un número flotante en un número entero
+ * @brief [EN] : Function to convert a float number to an integer.
+ * 
+ * @param num
+ *  [ES] : Número flotante a convertir
+ *  [EN] : Floating number to be converted
+ */
 int convierteInt(float num)
 {
     int resultado;
@@ -16,7 +27,17 @@ int convierteInt(float num)
     return resultado;
 }
 
-// Function to verify and print Kaprekar numbers in a given range
+/**
+ * @brief [ES] : Función para verificar e imprimir números Kaprekar en un rango dado
+ * @brief [EN] : Function to verify and print Kaprekar numbers in a given range.
+ * 
+ * @param inicio
+ *  [ES] : Número en el que inicia el rango.
+ *  [EN] : Number at which the range starts.
+ * @param fin
+ *  [ES] :  Número en el que termina el rango.
+ *  [EN] : Number at which the range starts.
+ */
 void verificaNum(int inicio, int fin)
 {
     int cuadrado, modulo, divInt, operador=10, numVer=inicio, conta=0;
@@ -95,11 +116,11 @@ int main (void)
                 verificaNum(numInicio, numFin); // Verify and print Kaprekar numbers in the valid range
                 printf("\n\n¿Quieres comparar otros números?\nResponde S para hacerlo: ");
                 respuesta=getchar();
-                respuesta = toupper(respuesta);  // Get user's response and convert to uppercase
+                respuesta = toupper(respuesta);
           }
                 
     }
-    while(respuesta == 'S' ); // Repeat if user responds with 'S'
+    while(respuesta == 'S' );
     
     getchar();
     return 0;

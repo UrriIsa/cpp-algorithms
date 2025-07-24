@@ -30,10 +30,12 @@
  *     - NOMBRE##CMira : peek.
  *     - NOMBRE##CVaciar : clear.
  *
- * @param T      [ES] Tipo de los elementos.
- *               [EN] Type of the elements.
- * @param NOMBRE [ES] Prefijo para tipos y funciones.
- *               [EN] Prefix for types and functions.
+ * @param T
+ *  [ES] : Tipo de los elementos.
+ *  [EN] : Type of the elements.
+ * @param NOMBRE
+ *  [ES] : Prefijo para tipos y funciones.
+ *  [EN] : Prefix for types and functions.
  */
 
 #ifndef COLA_H

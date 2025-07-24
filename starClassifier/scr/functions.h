@@ -1,3 +1,14 @@
+/**
+ * @file functions.h
+ * 
+ * @brief [ES] : Prototipos y estructuras para clasificar estrellas a partir de datos en CSV.
+ * @brief [EN] : Prototypes and structures for classifying stars based on CSV data.
+ * 
+ * @author Isaac Urrutia-Alfaro
+ * License : MIT License
+ * Copyright (c) 2024-2025 Isaac Urrutia-Alfaro
+ */
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 

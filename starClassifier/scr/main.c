@@ -1,5 +1,22 @@
+/**
+ * @file main.c
+ * 
+ * @brief [ES] : Clasifica estrellas por medio de datos proporcionados por un archivo csv.
+ * @brief [EN] : Classify stars by means of data provided by a csv file.
+ * 
+ * @author: Isaac Urrutia-Alfaro
+ * License: MIT License
+ * Copyright (c) 2024-2025 Isaac Urrutia-Alfaro
+ */
+
 #include "functions.h"
 
+/**
+ * @brief [ES]: Función principal que lee datos de estrellas desde un archivo CSV, muestra sus características
+ *               y libera la memoria asignada.
+ * @brief [EN]: Main function that reads star data from a CSV file, displays their properties,
+ *               and frees allocated memory.
+ */
 int main (){
     const char *fileCSV = "../data/starData.csv" ;
     int totSt = 0 ;
@@ -12,10 +29,10 @@ int main (){
                     stars[i].name, clasificaEstrella(stars[i].temperature), stars[i].density, stars[i].temperature) ;
 
             /*  
-                Puede que no funciones por los colores, entonces se pondría : 
-                    printf("La estrella %s es de tipo %c y sus datos son : \n\t-Densidad : %0.2f\n\t-Temperatura : %d\n", 
-                    stars[i].name, clasificaEstrella(stars[i].temperature), stars[i].density, stars[i].temperature) ;
-
+                [ES] : Puede que no funcione por los colores, entonces se pondría :
+                [EN] : It may not work because of the colors, then it would be set :  
+                       printf("La estrella %s es de tipo %c y sus datos son : \n\t-Densidad : %0.2f\n\t-Temperatura : %d\n", 
+                       stars[i].name, clasificaEstrella(stars[i].temperature), stars[i].density, stars[i].temperature) ;
             */
         }
 
